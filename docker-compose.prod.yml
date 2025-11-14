@@ -7,3 +7,9 @@ services:
     ports:
       - "3000:3000"
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s      # cek setiap 30 detik
+      timeout: 5s        # timeout per cek 5 detik
+      retries: 3         # gagal 3x dianggap unhealthy
+      start_period: 10s  # waktu tunggu sebelum healthcheck pertama (opsional)

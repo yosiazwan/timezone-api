@@ -28,6 +28,7 @@ const app = new Elysia()
       long: t.String(),
     }),
   })
+  .get("/health", () => "OK")
   .listen(3000);
 
 console.log("Server running on http://localhost:3000/");

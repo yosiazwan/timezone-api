@@ -1,5 +1,5 @@
 import { Elysia, t } from "elysia";
-import * as geoTz from "geo-tz";
+const { find } = await import("geo-tz");
 
 const app = new Elysia()
   .get("/", ({ query }) => {
@@ -11,7 +11,7 @@ const app = new Elysia()
     }
 
     // geoTz.find returns array of possible timezones
-    const tz = geoTz.find(lat, long);
+    const tz = find(lat, long);
 
     if (!tz || tz.length === 0) {
       return { error: "Timezone not found" };

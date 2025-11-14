@@ -1,9 +1,10 @@
 services:
   timezone-api:
+    image: timezone-api-dev:1.0.0
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: timezone-api
+    container_name: timezone-api-dev
     ports:
       - "3000:3000"
     restart: unless-stopped
